@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="shortcut icon" href="scr/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="scr/assets/favicon.ico" type="image/x-icon"> -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>git_blog</title>
   </head>
   <body>
@@ -10,3 +14,13 @@
     <!-- built files will be auto injected -->
   </body>
 </html>
+<script>
+  //To Use History mode on Github
+(function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+    }
+})();
+</script>
