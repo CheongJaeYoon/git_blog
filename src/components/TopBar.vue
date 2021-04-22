@@ -40,6 +40,13 @@ export default {
     position: absolute;
     cursor: pointer;
   }
+  .menu-button:hover{
+    top : 11px;
+    left : 17px;
+    position: absolute;
+    cursor: pointer;
+    color: #666
+  }
   .title{
     margin-top: 7px;
     font-size: 30px;

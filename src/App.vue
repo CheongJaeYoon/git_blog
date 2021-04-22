@@ -77,7 +77,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: #eee;
+
 }
 header {
   margin-top: 3px;
@@ -87,7 +88,6 @@ header {
 }
 main {
   height: 100%;
-  background-color: white;
 }
 aside {
   position: absolute;
@@ -96,7 +96,7 @@ aside {
   left : -300px;
   width: 300px;
   height: 100%;
-  background-color: cadetblue;
+  padding: 3px;
   transition: 0.3s;
 }
 section {
@@ -105,6 +105,6 @@ section {
   height: 100%;
   margin-left : -500px;
   left: 50%;
-  background-color: chartreuse;
+  background-color: white;
 }
 </style>
