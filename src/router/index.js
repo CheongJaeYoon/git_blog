@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Post from '@/components/Post'
-import Home from '@/components/Home'
+import Select from '@/components/Select'
 import Profile from '@/components/Profile'
 
 Vue.use(Router)
@@ -11,10 +11,15 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Select
     },
     {
-      path: '/post/:category/:postName',
+      path: '/category/:categoryName',
+      name: 'Select',
+      component: Select
+    },
+    {
+      path: '/post/:categoryName/:postName',
       name: 'Post',
       component: Post
     },

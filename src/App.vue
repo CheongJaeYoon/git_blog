@@ -87,7 +87,7 @@ header {
   height: 50px;
 }
 main {
-  height: 100%;
+  height: calc(100% - 53px);
 }
 aside {
   position: absolute;

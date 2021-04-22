@@ -30,7 +30,7 @@ export default {
     height: 100%;
     border: 5px solid #333333;
     background-color: white;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border-radius: 3px;
     display: flex;
     flex-direction: row;
   }

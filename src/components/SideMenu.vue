@@ -43,9 +43,6 @@ export default {
       isCategoryClicked: false
     }
   },
-  created () {
-    console.log(this.category)
-  },
   methods: {
     categoryClick () {
       this.isCategoryClicked = !this.isCategoryClicked
