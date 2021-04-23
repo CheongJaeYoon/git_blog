@@ -1,16 +1,26 @@
 <template>
-  <div class="select">
+  <div class = "select">
     <div class = "titleCard">
       <span class = "title">{{ title }}</span>
-      <span class = "length">( {{ postArr.length }} )</span>
+      <span class = "length">( {{ totalPostNum }} )</span>
     </div>
-    <div class="menuCards">
+    <div class = "menuCards">
       <div
-        v-for="(el, idx) in postArr"
+        v-for="(el, idx) in postArr[currentIdx]"
         :key="idx"
+        :class="fadeEffect===true?'fade':''"
         class = "menuCard">
         <span class="title">{{ el.postname }}</span>
         <span class="date">{{ el.firstMadeDate | strToDate }}</span>
+      </div>
+      <div class = "pagination">
+        <span
+          v-for="el in idxArr"
+          :class="el===currentIdx?'focus':''"
+          :key="el"
+          @click="clickIdx(el)">
+          {{ el + 1 }}
+        </span>
       </div>
     </div>
   </div>
@@ -30,27 +40,60 @@ export default {
   data () {
     return {
       title: 'Home',
-      postArr: []
+      postArr: [],
+      totalPostNum: 0,
+      currentIdx: 0,
+      idxArr: [],
+      fadeEffect: false
     }
   },
   created () {
     if (this.$route.params.hasOwnProperty('categoryName')) {
       this.title = this.$route.params.categoryName
-      this.postArr = post[this.title]
+      this.totalPostNum = post[this.title].length
+      this.postArr = this.makePostArr(post[this.title])
       console.log(this.postArr)
     } else {
       this.title = 'Home'
       console.log(post)
+      let tempArr = []
       for (let key in post) {
         post[key].forEach((el) => {
-          this.postArr.push(el)
+          tempArr.push(el)
         })
       }
-      this.postArr.sort(function (a, b) {
+      tempArr.sort(function (a, b) {
         a = new Date(a.firstMadeDate)
         b = new Date(b.firstMadeDate)
         return (a > b ? -1 : (a < b ? 1 : 0))
       })
+      this.totalPostNum = tempArr.length
+      this.postArr = this.makePostArr(tempArr)
+    }
+  },
+  methods: {
+    makePostArr (tempArr) {
+      let pageUnit = 4
+      let resultArr = []
+      for (let i = 0; i < Math.ceil(tempArr.length / pageUnit); i++) {
+        resultArr[i] = []
+        this.idxArr.push(i)
+        for (let j = i * pageUnit; j < (i + 1) * pageUnit; j++) {
+          if (j < tempArr.length) {
+            resultArr[i].push(tempArr[j])
+          }
+        }
+      }
+      console.log(this.idxArr)
+      return resultArr
+    },
+    clickIdx (idx) {
+      this.currentIdx = idx
+      this.fadeEffect = true
+      document.querySelector('section').scrollTo({top: 400, behavior: 'smooth'})
+      setTimeout(() => {
+        this.fadeEffect = false
+      }, 200)
     }
   }
 }
@@ -59,8 +102,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .select{
-  height: 100%;
-  overflow-y: scroll;
+  width: 1000px;
+  margin: auto;
+  background-color:white;
 }
 .titleCard{
   padding-top: 420px;
@@ -78,7 +122,7 @@ export default {
 }
 
 .menuCard{
-  transition: 0.3s;
+  transition: 0.1s;
   height: 200px;
   width: 900px;
   margin: 40px 50px 40px 50px;
@@ -97,8 +141,34 @@ export default {
   font-size: 20px;
   color: #888;
 }
-
 .menuCard:hover{
   background-color: #ddd;
+}
+.menuCard.fade{
+  transform:translateX(100%);
+  opacity: 0;
+}
+.pagination{
+  margin-top: 70px;
+  padding-bottom: 150px;
+}
+.pagination span{
+  display: inline-block;
+  margin: 10px;
+  border: 3px solid #ccc;
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+}
+.pagination span:hover{
+  border: 3px solid black;
+  cursor: pointer;
+}
+.pagination span.focus{
+  border: 3px solid black;
+}
+.pagination span.focus:hover{
+  border: 3px solid black;
+  cursor: default;
 }
 </style>

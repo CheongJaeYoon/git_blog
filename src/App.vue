@@ -3,14 +3,14 @@
     <header>
       <top-bar/>
     </header>
-    <aside>
-      <side-menu/>
-    </aside>
     <main>
       <section>
         <router-view/>
       </section>
     </main>
+    <aside>
+      <side-menu/>
+    </aside>
     <footer>
       <!-- -->
     </footer>
@@ -101,10 +101,9 @@ aside {
 }
 section {
   position: relative;
-  width: 1000px;
+  width: 100%;
   height: 100%;
-  margin-left : -500px;
-  left: 50%;
-  background-color: white;
+  overflow-y: scroll;
+  background-color: #eee;
 }
 </style>
