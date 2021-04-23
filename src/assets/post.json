@@ -1,54 +1,66 @@
 {
     "etc":[
         {
+            "category" : "etc",
             "postname" : "title",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         }
     ],
     "a":[
         {
+            "category" : "a",
             "postname" : "something1",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "a",
             "postname" : "something2",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         }
     ],
     "lotsOf":[
         {
+            "category" : "lotsOf",
             "postname" : "title",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (2)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (3)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (4)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (5)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (6)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (7)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         },
         {
+            "category" : "lotsOf",
             "postname" : "title - 복사본 (8)",
             "firstMadeDate" : "2021-04-21T03:38:45.135Z"
         }

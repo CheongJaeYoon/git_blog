@@ -9,7 +9,8 @@
         v-for="(el, idx) in postArr[currentIdx]"
         :key="idx"
         :class="fadeEffect===true?'fade':''"
-        class = "menuCard">
+        class = "menuCard"
+        @click = "clickLink('/post/'+ el.category + '/'+ el.postname)">
         <span class="title">{{ el.postname }}</span>
         <span class="date">{{ el.firstMadeDate | strToDate }}</span>
       </div>
@@ -88,12 +89,21 @@ export default {
       return resultArr
     },
     clickIdx (idx) {
-      this.currentIdx = idx
-      this.fadeEffect = true
-      document.querySelector('section').scrollTo({top: 400, behavior: 'smooth'})
-      setTimeout(() => {
-        this.fadeEffect = false
-      }, 200)
+      if (this.currentIdx !== idx) {
+        this.currentIdx = idx
+        this.fadeEffect = true
+        document.querySelector('section').scrollTo({top: 400, behavior: 'smooth'})
+        setTimeout(() => {
+          this.fadeEffect = false
+        }, 200)
+      }
+    },
+    clickLink (str) {
+      if (this.$route.fullPath === str) {
+        this.$router.go()
+      } else {
+        this.$router.push(str)
+      }
     }
   }
 }
@@ -115,6 +125,7 @@ export default {
   background-color:white;
   border-bottom: 3px solid #ccc;
   margin-bottom: 70px;
+  user-select: none;
 }
 .titleCard .length{
   font-size: 25px;
@@ -132,14 +143,17 @@ export default {
   background-color: white;
   border: 3px solid black;
   cursor: pointer;
+  user-select: none;
 }
 .menuCard .title{
   font-size: 40px;
+  user-select: none;
 }
 .menuCard .date{
   margin-left: 15px;
   font-size: 20px;
   color: #888;
+  user-select: none;
 }
 .menuCard:hover{
   background-color: #ddd;
@@ -159,6 +173,7 @@ export default {
   width: 35px;
   height: 35px;
   padding: 3px;
+  user-select: none;
 }
 .pagination span:hover{
   border: 3px solid black;

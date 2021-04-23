@@ -5,7 +5,9 @@
     </header>
     <main>
       <section>
-        <router-view/>
+        <transition>
+          <router-view/>
+        </transition>
       </section>
     </main>
     <aside>

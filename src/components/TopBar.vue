@@ -4,7 +4,9 @@
       class="fa-2x menu-button"
       icon="bars"
       @click="clickButton"/>
-    <div class="title">{{ msg }}</div>
+    <div
+      class="title"
+      @click="clickLink('/')">{{ msg }}</div>
   </div>
 </template>
 
@@ -19,6 +21,13 @@ export default {
   methods: {
     clickButton () {
       document.querySelector('aside').style.left = '0px'
+    },
+    clickLink (str) {
+      if (this.$route.fullPath === str) {
+        this.$router.go()
+      } else {
+        this.$router.push(str)
+      }
     }
   }
 }
@@ -51,5 +60,10 @@ export default {
     margin-top: 7px;
     font-size: 30px;
     width: 100%;
+    user-select: none
+  }
+  .title:hover{
+    cursor: pointer;
+    color: #888
   }
 </style>

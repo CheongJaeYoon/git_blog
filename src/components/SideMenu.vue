@@ -12,7 +12,9 @@
       </div>
     </div>
     <div class="menu">
-      <a class = "home depth1">
+      <a
+        class = "home depth1"
+        @click = "clickLink('/')">
         Home
       </a>
       <div
@@ -23,10 +25,13 @@
       <a
         v-for="(obj, name) in category"
         :key="name"
-        :class="name + (isCategoryClicked ? ' ' : ' hidden') + ' depth2'">
+        :class="name + (isCategoryClicked ? ' ' : ' hidden') + ' depth2'"
+        @click = "clickLink('/category/' + name)">
         {{ name }} ( {{ obj.length }} )
       </a>
-      <a class = "home depth1">
+      <a
+        class = "home depth1"
+        @click = "clickLink('/profile')">
         Profile
       </a>
     </div>
@@ -46,6 +51,13 @@ export default {
   methods: {
     categoryClick () {
       this.isCategoryClicked = !this.isCategoryClicked
+    },
+    clickLink (str) {
+      if (this.$route.fullPath === str) {
+        this.$router.go()
+      } else {
+        this.$router.push(str)
+      }
     }
   }
 }
@@ -80,6 +92,7 @@ export default {
   height: 50px;
   background-color:white;
   font-size: 30px;
+  user-select: none;
 }
 .shortcut{
   height: 60px;
@@ -106,6 +119,7 @@ export default {
   margin: 20px 0 0 0;
   padding: 20px;
   cursor: pointer;
+  user-select: none;
 }
 .menu .depth2{
   display: block;
@@ -114,6 +128,7 @@ export default {
   font-size: 20px;
   padding-top: 10px;
   cursor: pointer;
+  user-select: none;
 }
 .menu .depth2:hover{
   color: #777777
