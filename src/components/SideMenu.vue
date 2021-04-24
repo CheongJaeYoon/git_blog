@@ -12,28 +12,28 @@
       </div>
     </div>
     <div class="menu">
-      <a
-        class = "home depth1"
-        @click = "clickLink('/')">
+      <router-link
+        to="/"
+        class = "home depth1">
         Home
-      </a>
+      </router-link>
       <div
         class = "category depth1"
         @click="categoryClick">
         Category {{ isCategoryClicked ? '△' : '▽' }}
       </div>
-      <a
+      <router-link
         v-for="(obj, name) in category"
         :key="name"
         :class="name + (isCategoryClicked ? ' ' : ' hidden') + ' depth2'"
-        @click = "clickLink('/category/' + name)">
+        :to="'/category/' + name">
         {{ name }} ( {{ obj.length }} )
-      </a>
-      <a
-        class = "home depth1"
-        @click = "clickLink('/profile')">
+      </router-link>
+      <router-link
+        to="/profile"
+        class = "home depth1">
         Profile
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

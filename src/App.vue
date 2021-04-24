@@ -6,7 +6,7 @@
     <main>
       <section>
         <transition>
-          <router-view/>
+          <router-view :key="$route.path"/>
         </transition>
       </section>
     </main>
@@ -31,6 +31,11 @@ export default {
   data () {
     return {
       firstClick: false
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      console.log(to, from)
     }
   },
   mounted () {
@@ -70,6 +75,10 @@ html, body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+a {
+  color: black;
+  text-decoration: none;
 }
 #app {
   height: 100%;

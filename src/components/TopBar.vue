@@ -5,8 +5,11 @@
       icon="bars"
       @click="clickButton"/>
     <div
-      class="title"
-      @click="clickLink('/')">{{ msg }}</div>
+      class="title">
+      <router-link to="/">
+        {{ msg }}
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -62,7 +65,7 @@ export default {
     width: 100%;
     user-select: none
   }
-  .title:hover{
+  .title a:hover{
     cursor: pointer;
     color: #888
   }
