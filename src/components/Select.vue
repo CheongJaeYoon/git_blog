@@ -49,6 +49,10 @@ export default {
     }
   },
   created () {
+    if (localStorage.getItem('path')) {
+      this.$router.push(localStorage.getItem('path'))
+      localStorage.removeItem('path')
+    }
     if (this.$route.params.hasOwnProperty('categoryName')) {
       this.title = this.$route.params.categoryName
       this.totalPostNum = post[this.title].length
